@@ -11,8 +11,8 @@ void copro1::pkt_processing()
 	{
 
 		//Récupération du paquet envoyé par le processeur via l'interconnexion (attente bloquante)
-		
-		wait(packetIn.default_event());
+		complete.write(false);
+		wait(valueReady.posedge_event());
 		Packet* receivedPacket = packetIn.read();
 		pkt = *receivedPacket;
 
@@ -54,5 +54,7 @@ void copro1::pkt_processing()
 		printf("fin traitement copro1");
 		receivedPacket->setPayload(tableau);
 		packetOut.write(receivedPacket);
+		complete.write(true);
+		wait(1, SC_NS);
 	}
 }

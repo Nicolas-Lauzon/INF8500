@@ -36,6 +36,9 @@ int sc_main( int argc, char* argv[] )
 	sc_signal<Packet*> copro1In;
 	sc_signal<Packet*> copro1Out;
 
+	sc_signal<bool> completeSignal;
+	sc_signal<bool> valueReady1;
+
 	// Connexions entre interconnexion et copro2 
 	/* 
 	A compléter
@@ -80,6 +83,8 @@ int sc_main( int argc, char* argv[] )
 
 	i_interconnexion.pkt_in(processorOut);
 	i_interconnexion.pkt_out(processorIn);
+	i_interconnexion.readReady1(completeSignal);
+	i_interconnexion.valueSent1(valueReady1);
 	
 
 	i_interconnexion.pkt_in_copro1(copro1Out);
@@ -97,6 +102,8 @@ int sc_main( int argc, char* argv[] )
 
 	i_copro1.packetIn(copro1In);
 	i_copro1.packetOut(copro1Out);
+	i_copro1.complete(completeSignal);
+	i_copro1.valueReady(valueReady1);
 	
 
 	i_copro2.packetIn(copro2InSignal);

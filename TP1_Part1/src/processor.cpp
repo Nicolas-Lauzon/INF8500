@@ -74,7 +74,6 @@ void processor::packet_handling(void)
 		for (int z = 0; z < pkt_original->getPayloadSize(); z++) {
 			printf("valeur processeur : %d\n", tableau[z]);
 		}
-		printf("avant read");
 		// Réception du paquet envoyé par le coprocesseur via interconnexion (attente bloquante)
 		pkt_copro = *pkt_in.read();
 

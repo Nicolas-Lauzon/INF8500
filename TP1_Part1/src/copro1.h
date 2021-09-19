@@ -15,6 +15,8 @@ SC_MODULE(copro1)
 	sc_in<Packet*> packetIn;
 	sc_out<Packet*> packetOut;
 
+	sc_out<bool> complete;
+	sc_in<bool> valueReady;
 	/* *******************************************************************
 	// LOCAL VARIABLES
 	******************************************************************** */

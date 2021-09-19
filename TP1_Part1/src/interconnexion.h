@@ -18,6 +18,8 @@ SC_MODULE(interconnexion)
 	sc_in<Packet*> pkt_in_copro1;
 	sc_out<Packet*> pkt_out_copro1;
 
+	sc_in<bool> readReady1;
+	sc_out<bool> valueSent1;
 	//////// Interface avec le corocesseur 2 ////////
 	// Sortie du paquet à transmettre au coprocesseur 2
 	sc_in<Packet*> pkt_in_copro2;
@@ -53,6 +55,7 @@ SC_MODULE(interconnexion)
 	{
 		// pkt_dispatch est un thread de interconnexion
 		SC_THREAD(pkt_dispatch);
+		sensitive << pkt_in_copro1;
 	}
 
 };

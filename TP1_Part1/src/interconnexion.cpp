@@ -5,6 +5,7 @@ void interconnexion::pkt_dispatch(void)
 {
 	
 	int addr = 0;
+	valueSent1.write(false);
 	while (true)
 	{
 		//Récupération du paquet (attente bloquante)
@@ -52,7 +53,10 @@ void interconnexion::pkt_copro1(void)
 	A compléter 
 	*/
 	pkt_out_copro1.write(&pkt);  //crash à ce moment-ci. Probablement problème de pointeur
-	wait(pkt_in_copro1.default_event());
+	valueSent1.write(true);
+	wait(1, SC_NS);
+	valueSent1.write(false);
+	wait(readReady1.posedge_event());
 
 	// Réception paquet envoyé par copro 1 (attente bloquante)
 	/*
