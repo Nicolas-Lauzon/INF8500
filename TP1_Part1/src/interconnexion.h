@@ -18,9 +18,6 @@ SC_MODULE(interconnexion)
 	sc_in<Packet*> pkt_in_copro1;
 	sc_out<Packet*> pkt_out_copro1;
 
-	sc_out<bool> sendStart1;
-	sc_in<bool> receiveStart1;
-
 	//////// Interface avec le corocesseur 2 ////////
 	// Sortie du paquet à transmettre au coprocesseur 2
 	sc_in<Packet*> pkt_in_copro2;

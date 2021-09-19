@@ -7,55 +7,52 @@ void copro1::pkt_processing()
 	/*
 	A compléter si nécessaire
 	*/
-	completeSignal.write(false);
 	while(true) 
 	{
 
 		//Récupération du paquet envoyé par le processeur via l'interconnexion (attente bloquante)
-		/*int cmpt = 0;
-		int timpe = 0;
-		while (!packetIn.event()){
-			if (cmpt == 100) {
-				printf("waiting %d", timpe);
-			}
-			timpe++;
-			cmpt++;
-		}*/
-		wait(startSignal.posedge_event());
+		
+		wait(packetIn.default_event());
 		Packet* receivedPacket = packetIn.read();
 		pkt = *receivedPacket;
 
 		// Traitement du paquet (tri)
-		unsigned int* tableau = (pkt.getPayload());
-		if (pkt.getAddress() == 2) {
-			int longueur = pkt.getPayloadSize();
-			int i, inversion;
-			do
-			{
-				inversion = 0;
+		unsigned int* refToPayload = (receivedPacket->getPayload());
+		unsigned int* tableau = new unsigned int[receivedPacket->getPayloadSize()];
+		for (int i = 0; i < receivedPacket->getPayloadSize(); i++)
+		{
+			tableau[i] = *(refToPayload + i);
+		}
+		
+		int longueur = receivedPacket->getPayloadSize();
+		int inversion;
+		do
+		{
+			inversion = 0;
 
-				for (i = 0; i < longueur - 1; i++)
+			for (int i = 0; i < longueur - 1; i++)
+			{
+				if (tableau[i] > tableau[i + 1])
 				{
-					if (tableau[i] < tableau[i + 1])
-					{
-						int tempElement = tableau[i];
-						tableau[i] = tableau[i + 1];
-						tableau[i + 1] = tempElement;
-						inversion = 1;
-					}
+					unsigned int tempElement = tableau[i];
+					tableau[i] = tableau[i + 1];
+					tableau[i + 1] = tempElement;
+					inversion = 1;
 				}
-				longueur--;
-			} while (inversion);
+			}
+			longueur--;
+		} while (inversion);
+		
+		for (int i = 0; i < 6; i++) {
+			printf("valeur tableu : %d\n", tableau[i]);
 		}
 
 		// Renvoi du paquet traité vers le processeur via l'interconnexion
 		/*
 		A compléter
 		*/
+		printf("fin traitement copro1");
 		receivedPacket->setPayload(tableau);
 		packetOut.write(receivedPacket);
-		completeSignal.write(true);
-		wait(1, SC_NS);
-		completeSignal.write(false);
 	}
 }

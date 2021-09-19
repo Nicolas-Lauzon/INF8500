@@ -20,23 +20,30 @@ void processor::packet_handling(void)
 		// Envoi du paquet vers le coprocesseur (via interconnexion) 
 		pkt_out.write(pkt_original);
 
-		unsigned int* tab[500] = { pkt_original->getPayload() };
 		// Calcul du tri pour comparer avec celui du coprocesseur
-		unsigned int* tableau = (pkt_original->getPayload());
+		unsigned int* refToPayload = (pkt_original->getPayload());
+		unsigned int* tableau = new unsigned int[pkt_original->getPayloadSize()];
+
+		for (int y = 0; y < pkt_original->getPayloadSize(); y++)
+		{
+			tableau[y] = *(refToPayload + y);
+		}
+		
+
 		if (pkt_original->getAddress() == 2) {
 			int longueur = pkt_original->getPayloadSize();
-			int i, inversion;
+			int inversion;
 			do
 			{
 				inversion = 0;
 
-				for (i = 0; i < longueur - 1; i++)
+				for (int z = 0; z < longueur - 1; z++)
 				{
-					if (tableau[i] < tableau[i + 1])
+					if (tableau[z] < tableau[z + 1])
 					{
-						int tempElement = tableau[i];
-						tableau[i] = tableau[i + 1];
-						tableau[i + 1] = tempElement;
+						unsigned int tempElement = tableau[z];
+						tableau[z] = tableau[z + 1];
+						tableau[z + 1] = tempElement;
 						inversion = 1;
 					}
 				}
@@ -51,18 +58,21 @@ void processor::packet_handling(void)
 			{
 				inversion = 0;
 
-				for (i = 0; i < longueur - 1; i++)
+				for (int z = 0; z < longueur - 1; z++)
 				{
-					if (tableau[i] > tableau[i + 1])
+					if (tableau[z] > tableau[z + 1])
 					{
-						int tempElement = tableau[i];
-						tableau[i] = tableau[i + 1];
-						tableau[i + 1] = tempElement;
+						unsigned int tempElement = tableau[z];
+						tableau[z] = tableau[z + 1];
+						tableau[z + 1] = tempElement;
 						inversion = 1;
 					}
 				}
 				longueur--;
 			} while (inversion);
+		}
+		for (int z = 0; z < pkt_original->getPayloadSize(); z++) {
+			printf("valeur processeur : %d\n", tableau[z]);
 		}
 		printf("avant read");
 		// Réception du paquet envoyé par le coprocesseur via interconnexion (attente bloquante)
@@ -71,15 +81,18 @@ void processor::packet_handling(void)
 		// Comparaison du paquet envoyé et reçu
 		// Et affichage d'un message pour dire si c'est le résultat attendu ou non (Id, adresse et payload)
 		printf("fini");
-		if (pkt_copro.getPayload() == tableau) {
+		for (int i = 0; i < 6; i++) {
+			printf("paquet recu du copro1 = %d\n", *(pkt_copro.getPayload() + i));
+		}
+		/*if (pkt_copro.getPayload() == tableau) {
 			//printf("tout va bien %d%d%d", pkt_copro.getPacketId(), pkt_copro.getAddress(), pkt_copro.getPayload());
 			printf("ok");
 		}
 		else {
 			//printf("ca va mal %d%d%d", pkt_copro.getPacketId(), pkt_copro.getAddress(), pkt_copro.getPayload());
 			printf("pas ok");
-		}
-
+		}*/
+		//printf("%p", pkt_original->getPayload());
 		delete pkt_original;
 		i++;
 	}

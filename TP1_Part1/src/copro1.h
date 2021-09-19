@@ -15,9 +15,6 @@ SC_MODULE(copro1)
 	sc_in<Packet*> packetIn;
 	sc_out<Packet*> packetOut;
 
-	sc_in<bool> startSignal;
-	sc_out<bool> completeSignal;
-
 	/* *******************************************************************
 	// LOCAL VARIABLES
 	******************************************************************** */

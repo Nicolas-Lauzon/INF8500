@@ -1,5 +1,0 @@
-﻿cl : ligne de commande warning D9035: l'option 'Gm' est déconseillée et sera supprimée dans une version ultérieure
-  sc_main_main.cpp
-  sc_main.cpp
-  Génération de code en cours...
-  SystemC.vcxproj -> C:\TEMP\systemc-2.3.3\systemc-2.3.3\msvc10\SystemC\Debug\SystemC.lib
