@@ -74,7 +74,7 @@ int sc_main( int argc, char* argv[] )
 	/* 
 	A compléter
 	*/
-	i0_processor.pkt_out(processorOut);
+	/*i0_processor.pkt_out(processorOut);
 	i0_processor.pkt_in(processorIn);
 
 
@@ -106,7 +106,13 @@ int sc_main( int argc, char* argv[] )
 
 	i_copro3.pkt_in_copro3(copro3In);
 	i_copro3.pkt_out_copro3(copro3Out);
-
+	*/
+	i0_processor(processorOut, processorIn);
+	i_interconnexion(processorOut, processorIn, copro1Out, copro1In, copro2OutSignal, copro2InSignal, copro2OutBuffer, copro2InBuffer,
+		copro3Out, copro3In);
+	i_copro1(copro1In, copro1Out);
+	i_copro2(copro2InSignal, copro2OutSignal, copro2InBuffer, copro2OutBuffer);
+	i_copro3(copro3In, copro3Out);
 
 	//------------------------------------------
 	// Démarrer la simulation

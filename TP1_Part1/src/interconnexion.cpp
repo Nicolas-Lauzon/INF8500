@@ -51,8 +51,12 @@ void interconnexion::pkt_copro1(void)
 	/* 
 	A compléter 
 	*/
-	pkt_out_copro1.write(&pkt);  //crash à ce moment-ci. Probablement problème de pointeur
-	wait(pkt_in_copro1.default_event());
+	pkt_out_copro1.write(&pkt);  
+	//wait();
+	//printf("%p", pkt_in_copro1.default_event());
+	wait(1, SC_NS);
+	int a = 5;
+	wait(pkt_in_copro1.default_event());    //crash à ce moment-ci. Probablement problème de pointeur
 
 	// Réception paquet envoyé par copro 1 (attente bloquante)
 	/*

@@ -7,13 +7,14 @@ void copro1::pkt_processing()
 	/*
 	A compléter si nécessaire
 	*/
+	Packet* receivedPacket;
 	while(true) 
 	{
 
 		//Récupération du paquet envoyé par le processeur via l'interconnexion (attente bloquante)
 		
 		wait(packetIn.default_event());
-		Packet* receivedPacket = packetIn.read();
+		receivedPacket = packetIn.read();
 		pkt = *receivedPacket;
 
 		// Traitement du paquet (tri)
