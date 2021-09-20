@@ -43,10 +43,10 @@ int sc_main( int argc, char* argv[] )
 	/* 
 	A compléter
 	*/
-	sc_signal<Packet*> copro2InSignal;
+	sc_signal<bool> copro2InSignal;
 	sc_buffer<Packet*> copro2InBuffer;
 
-	sc_signal<Packet*> copro2OutSignal;
+	sc_signal<bool> copro2OutSignal;
 	sc_buffer<Packet*> copro2OutBuffer;
 
 	// Connexions entre interconnexion et copro3 
@@ -80,7 +80,6 @@ int sc_main( int argc, char* argv[] )
 	i0_processor.pkt_out(processorOut);
 	i0_processor.pkt_in(processorIn);
 
-
 	i_interconnexion.pkt_in(processorOut);
 	i_interconnexion.pkt_out(processorIn);
 	i_interconnexion.readReady1(completeSignal);
@@ -113,6 +112,13 @@ int sc_main( int argc, char* argv[] )
 
 	i_copro3.pkt_in_copro3(copro3In);
 	i_copro3.pkt_out_copro3(copro3Out);
+
+	/*i0_processor(processorOut, processorIn);
+	i_interconnexion(processorOut, processorIn, copro1Out, copro1In, copro2OutSignal, copro2InSignal, copro2OutBuffer, copro2InBuffer,
+		copro3Out, copro3In);
+	i_copro1(copro1In, copro1Out);
+	i_copro2(copro2InSignal, copro2OutSignal, copro2InBuffer, copro2OutBuffer);
+	i_copro3(copro3In, copro3Out);*/
 
 
 	//------------------------------------------

@@ -35,6 +35,7 @@ SC_MODULE(copro3)
 		/* 
 		A compléter
 		*/
+		SC_THREAD(pkt_processing);
 	}
 
 };

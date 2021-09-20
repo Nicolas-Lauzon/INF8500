@@ -13,8 +13,8 @@ void processor::packet_handling(void)
 		// Générer un nouveau paquet et l'envoyer à un coprocesseur
 		// Partie 1: générer un nombre aléatoire entre 1 et 3 ("adresse" du copro).
 		// A modifier pour partie 2: générer l'adresse dans la bonne plage (voir énoncé)
-		//address = 1 + (rand() % (3));
-		address = 1;  // Debug avec 1 copro
+		address = 1 + (rand() % (3));
+		//address = 1;  // Debug avec 1 copro
 		pkt_original = new Packet(i, address);
 
 		// Envoi du paquet vers le coprocesseur (via interconnexion) 
@@ -53,7 +53,7 @@ void processor::packet_handling(void)
 
 		else {
 			int longueur = pkt_original->getPayloadSize();
-			int i, inversion;
+			int inversion;
 			do
 			{
 				inversion = 0;
@@ -83,6 +83,7 @@ void processor::packet_handling(void)
 		for (int i = 0; i < 6; i++) {
 			printf("paquet recu du copro1 = %d\n", *(pkt_copro.getPayload() + i));
 		}
+		printf("valeur de i = %d\n", i);
 		/*if (pkt_copro.getPayload() == tableau) {
 			//printf("tout va bien %d%d%d", pkt_copro.getPacketId(), pkt_copro.getAddress(), pkt_copro.getPayload());
 			printf("ok");

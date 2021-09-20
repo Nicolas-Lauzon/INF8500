@@ -7,12 +7,14 @@ void copro1::pkt_processing()
 	/*
 	A compléter si nécessaire
 	*/
+	complete.write(false);
 	while(true) 
 	{
 
 		//Récupération du paquet envoyé par le processeur via l'interconnexion (attente bloquante)
-		complete.write(false);
 		wait(valueReady.posedge_event());
+		complete.write(false);
+		wait(1, SC_NS);
 		Packet* receivedPacket = packetIn.read();
 		pkt = *receivedPacket;
 
@@ -43,18 +45,17 @@ void copro1::pkt_processing()
 			longueur--;
 		} while (inversion);
 		
-		for (int i = 0; i < 6; i++) {
+		/*for (int i = 0; i < 6; i++) {
 			printf("valeur tableu : %d\n", tableau[i]);
-		}
+		}*/
 
 		// Renvoi du paquet traité vers le processeur via l'interconnexion
 		/*
 		A compléter
 		*/
-		printf("fin traitement copro1");
+		printf("fin traitement copro1\n");
 		receivedPacket->setPayload(tableau);
 		packetOut.write(receivedPacket);
 		complete.write(true);
-		wait(1, SC_NS);
 	}
 }

@@ -13,8 +13,8 @@ SC_MODULE(copro2)
 	/* 
 	A compléter
 	*/
-	sc_in<Packet*> packetIn;
-	sc_out<Packet*> packetOut;
+	sc_in<bool> packetIn;
+	sc_out<bool> packetOut;
 
 	sc_in<Packet*> packetIn_buf;
 	sc_out<Packet*> packetOut_buf;
@@ -39,6 +39,7 @@ SC_MODULE(copro2)
 		/* 
 		A compléter
 		*/
+		SC_THREAD(pkt_processing);
 	}
 
 };
