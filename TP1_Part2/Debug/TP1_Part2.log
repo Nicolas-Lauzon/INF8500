@@ -1,0 +1,36 @@
+﻿  copro1_adapt_slave.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\code_depart\part2\src\copro1_adapt_slave.h(8,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'packet.h' : No such file or directory
+  copro2_adapt_slave.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\code_depart\part2\src\copro2_adapt_slave.h(8,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'packet.h' : No such file or directory
+  copro3_adapt_slave.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\code_depart\part2\src\copro3_adapt_slave.h(8,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'packet.h' : No such file or directory
+  processor_adapt_master.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\code_depart\part2\src\processor_adapt_master.h(6,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'packet.h' : No such file or directory
+  simple_bus.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  simple_bus_arbiter.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  simple_bus_main.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\code_depart\part2\src\simple_bus_test.h(9,10): fatal error C1083: Impossible d'ouvrir le fichier include : 'packet.h' : No such file or directory
+  simple_bus_tools.cpp
+  simple_bus_types.cpp
+  copro1.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\TP1_Part1\src\copro1.cpp(24,21): warning C4018: '<' : incompatibilité signed/unsigned
+  copro2.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\TP1_Part1\src\copro2.cpp(22,21): warning C4018: '<' : incompatibilité signed/unsigned
+  copro3.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\TP1_Part1\src\copro3.cpp(19,21): warning C4018: '<' : incompatibilité signed/unsigned
+  packet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  processor.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\TEMP\INF8500\TP1_Part1\src\processor.cpp(27,21): warning C4018: '<' : incompatibilité signed/unsigned
+  Génération de code en cours...
