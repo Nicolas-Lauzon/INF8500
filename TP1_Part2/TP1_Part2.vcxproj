@@ -18,6 +18,44 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\copro1.h" />
+    <ClInclude Include="src\copro1_adapt_slave.h" />
+    <ClInclude Include="src\copro2.h" />
+    <ClInclude Include="src\copro2_adapt_slave.h" />
+    <ClInclude Include="src\copro3.h" />
+    <ClInclude Include="src\copro3_adapt_slave.h" />
+    <ClInclude Include="src\globals.h" />
+    <ClInclude Include="src\packet.h" />
+    <ClInclude Include="src\processor.h" />
+    <ClInclude Include="src\processor_adapt_master.h" />
+    <ClInclude Include="src\simple_bus.h" />
+    <ClInclude Include="src\simple_bus_arbiter.h" />
+    <ClInclude Include="src\simple_bus_arbiter_if.h" />
+    <ClInclude Include="src\simple_bus_blocking_if.h" />
+    <ClInclude Include="src\simple_bus_direct_if.h" />
+    <ClInclude Include="src\simple_bus_non_blocking_if.h" />
+    <ClInclude Include="src\simple_bus_request.h" />
+    <ClInclude Include="src\simple_bus_slave_if.h" />
+    <ClInclude Include="src\simple_bus_test.h" />
+    <ClInclude Include="src\simple_bus_types.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\copro1.cpp" />
+    <ClCompile Include="src\copro1_adapt_slave.cpp" />
+    <ClCompile Include="src\copro2.cpp" />
+    <ClCompile Include="src\copro2_adapt_slave.cpp" />
+    <ClCompile Include="src\copro3.cpp" />
+    <ClCompile Include="src\copro3_adapt_slave.cpp" />
+    <ClCompile Include="src\packet.cpp" />
+    <ClCompile Include="src\processor.cpp" />
+    <ClCompile Include="src\processor_adapt_master.cpp" />
+    <ClCompile Include="src\simple_bus.cpp" />
+    <ClCompile Include="src\simple_bus_arbiter.cpp" />
+    <ClCompile Include="src\simple_bus_main.cpp" />
+    <ClCompile Include="src\simple_bus_tools.cpp" />
+    <ClCompile Include="src\simple_bus_types.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -142,44 +180,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\code_depart\part2\src\copro1_adapt_slave.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\copro2_adapt_slave.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\copro3_adapt_slave.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\processor_adapt_master.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\simple_bus.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\simple_bus_arbiter.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\simple_bus_main.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\simple_bus_tools.cpp" />
-    <ClCompile Include="..\code_depart\part2\src\simple_bus_types.cpp" />
-    <ClCompile Include="src\copro1.cpp" />
-    <ClCompile Include="src\copro2.cpp" />
-    <ClCompile Include="src\copro3.cpp" />
-    <ClCompile Include="src\packet.cpp" />
-    <ClCompile Include="src\processor.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\code_depart\part2\src\copro1_adapt_slave.h" />
-    <ClInclude Include="..\code_depart\part2\src\copro2_adapt_slave.h" />
-    <ClInclude Include="..\code_depart\part2\src\copro3_adapt_slave.h" />
-    <ClInclude Include="..\code_depart\part2\src\processor_adapt_master.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_arbiter.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_arbiter_if.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_blocking_if.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_direct_if.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_non_blocking_if.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_request.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_slave_if.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_test.h" />
-    <ClInclude Include="..\code_depart\part2\src\simple_bus_types.h" />
-    <ClInclude Include="src\copro1.h" />
-    <ClInclude Include="src\copro2.h" />
-    <ClInclude Include="src\copro3.h" />
-    <ClInclude Include="src\globals.h" />
-    <ClInclude Include="src\packet.h" />
-    <ClInclude Include="src\processor.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

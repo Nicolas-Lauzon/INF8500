@@ -22,17 +22,23 @@ SC_MODULE(processor)
 	/* *******************************************************************
 	// MODULE METHODS
 	******************************************************************** */
+	SC_HAS_PROCESS(processor);
 	// Méthode qui gère les paquets (THREAD)
 	void packet_handling(void);
 
 	/* *******************************************************************
 	// MODULE CONSTRUCTOR
 	******************************************************************** */
-	SC_CTOR(processor)
+	processor(sc_module_name name_) : sc_module(name_)
+	{
+		SC_THREAD(packet_handling);
+	}
+
+	/*SC_CTOR(processor)
 	{
 		// generate est un thread
 		SC_THREAD(packet_handling);
-	}
+	}*/
 };
 
 #endif

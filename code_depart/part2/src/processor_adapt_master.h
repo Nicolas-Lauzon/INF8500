@@ -6,6 +6,7 @@
 #include "packet.h"	
 #include "simple_bus_types.h"
 #include "simple_bus_blocking_if.h"
+#include "packet.h"
 
 SC_MODULE(processor_adapt_master)
 {

@@ -13,7 +13,8 @@ void processor::packet_handling(void)
 		// Générer un nouveau paquet et l'envoyer à un coprocesseur
 		// Partie 1: générer un nombre aléatoire entre 1 et 3 ("adresse" du copro).
 		// A modifier pour partie 2: générer l'adresse dans la bonne plage (voir énoncé)
-		address = 1 + (rand() % (3));
+		//address = 1 + (rand() % (3));
+		address = 4 * (rand() % (19));
 		//address = 1;  // Debug avec 1 copro
 		pkt_original = new Packet(i, address);
 

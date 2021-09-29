@@ -6,7 +6,7 @@ void interconnexion::pkt_dispatch(void)
 	
 	int addr = 0;
 	valueSent1.write(false);
-	valueSent1.write(false);
+	pkt_out_copro2.write(false);
 	while (true)
 	{
 		//Récupération du paquet (attente bloquante)
