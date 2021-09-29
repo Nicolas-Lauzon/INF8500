@@ -1,5 +1,4 @@
 ﻿  processor.cpp
   Unknown compiler version - please run the configure tests and report the results
-C:\Users\nicolas\Desktop\INF8500\INF8500\TP1_Part1\src\processor.cpp(27,21): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\nicolas\Desktop\INF8500\INF8500\TP1_Part1\src\processor.cpp(74,21): warning C4018: '<' : incompatibilité signed/unsigned
-  TP1_Part1.vcxproj -> C:\Users\nicolas\Desktop\INF8500\INF8500\TP1_Part1\Debug\TP1_Part1.exe
+C:\TEMP\INF8500\TP1_Part1\src\processor.cpp(27,21): warning C4018: '<' : incompatibilité signed/unsigned
+  TP1_Part1.vcxproj -> C:\TEMP\INF8500\TP1_Part1\Debug\TP1_Part1.exe

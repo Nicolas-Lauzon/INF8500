@@ -40,15 +40,9 @@ void copro3::pkt_processing()
 			longueur--;
 		} while (inversion);
 
-		/*for (int i = 0; i < 6; i++) {
-			printf("valeur tableu : %d\n", tableau[i]);
-		}*/
 
 		// Renvoi du paquet traité vers le processeur via l'interconnexion
-		/*
-		A compléter
-		*/
-		printf("fin traitement copro3\n");
+		
 		receivedPacket->setPayload(tableau);
 		pkt_out_copro3.write(receivedPacket);
 		

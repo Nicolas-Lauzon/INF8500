@@ -28,7 +28,7 @@ void processor::packet_handling(void)
 		{
 			tableau[y] = *(refToPayload + y);
 		}
-		
+
 
 		if (pkt_original->getAddress() == 2) {
 			int longueur = pkt_original->getPayloadSize();
@@ -71,28 +71,51 @@ void processor::packet_handling(void)
 				longueur--;
 			} while (inversion);
 		}
-		for (int z = 0; z < pkt_original->getPayloadSize(); z++) {
-			printf("valeur processeur : %d\n", tableau[z]);
-		}
 		// Réception du paquet envoyé par le coprocesseur via interconnexion (attente bloquante)
 		pkt_copro = *pkt_in.read();
 
 		// Comparaison du paquet envoyé et reçu
 		// Et affichage d'un message pour dire si c'est le résultat attendu ou non (Id, adresse et payload)
-		printf("fini");
-		for (int i = 0; i < 6; i++) {
-			printf("paquet recu du copro1 = %d\n", *(pkt_copro.getPayload() + i));
-		}
-		printf("valeur de i = %d\n", i);
-		/*if (pkt_copro.getPayload() == tableau) {
-			//printf("tout va bien %d%d%d", pkt_copro.getPacketId(), pkt_copro.getAddress(), pkt_copro.getPayload());
-			printf("ok");
+
+		unsigned int* receivedPayload = pkt_copro.getPayload();
+		bool badPacket = false;
+		if (pkt_copro.getPacketId() == pkt_original->getPacketId() && pkt_copro.getAddress() == pkt_original->getAddress()) {
+			for (int i = 0; i < 6; i++) {
+				if (tableau[i] != *(receivedPayload + i)) {
+					badPacket = true;
+					break;
+				}
+			}
+			if (badPacket) {
+				printf("Le payload du paquet reçu n'est pas bon\n Paquet Original : id = %d   adresse = %d   Payload = ", pkt_original->getPacketId(), pkt_original->getAddress());
+				for (int i = 0; i < 6; i++) {
+					printf("%d ;", tableau[i]);
+				}
+				printf("\n paquet reçu : id = %d   adresse = %d   Payload = ", pkt_copro.getPacketId(), pkt_copro.getAddress());
+				for (int i = 0; i < 6; i++) {
+					printf("%d ;", *(receivedPayload + i));
+				}
+			}
+			else {
+				printf("Le Paquet est bon : id = %d   adresse = %d   Payload = ", pkt_copro.getPacketId(), pkt_copro.getAddress());
+				for (int i = 0; i < 6; i++) {
+					printf("%d ;", *(receivedPayload + i));
+				}
+				printf("\n");
+			}
 		}
 		else {
-			//printf("ca va mal %d%d%d", pkt_copro.getPacketId(), pkt_copro.getAddress(), pkt_copro.getPayload());
-			printf("pas ok");
-		}*/
-		//printf("%p", pkt_original->getPayload());
+			printf("Le paquet reçu n'est pas bon\n Paquet Original : id = %d   adresse = %d   Payload = ",pkt_original->getPacketId(), pkt_original->getAddress() );
+			for (int i = 0; i < 6; i++) {
+				printf("%d ;", tableau[i]);
+			}
+			printf("\n paquet reçu : id = %d   adresse = %d   Payload = ", pkt_copro.getPacketId(), pkt_copro.getAddress());
+			for (int i = 0; i < 6; i++) {
+				printf("%d ;", *(receivedPayload+i));
+			}
+			printf("\n");
+		}
+
 		delete pkt_original;
 		i++;
 	}
