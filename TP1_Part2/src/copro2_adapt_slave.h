@@ -22,6 +22,11 @@ public:
 	/*
 	A compléter
 	*/
+	sc_in<bool> packetIn;
+	sc_out<bool> packetOut;
+
+	sc_in<Packet*> packetIn_buf;
+	sc_out<Packet*> packetOut_buf;
 
 	/* *******************************************************************
 	// MODULE METHODS
@@ -56,15 +61,22 @@ public:
 		, m_wait_count(-1)
 	{
 		SC_THREAD(dispatch);
+		sensitive << start_dispatch;
 		/*
 		A compléter
 		*/
 
 		SC_METHOD(wait_loop);
 		dont_initialize();	// wait_loop ne sera pas appelé une première fois
+		sensitive << clock.pos();
 		/*
 		A compléter
 		*/
+		unsigned int size = (m_end_address - m_start_address + 1) / 4;
+		MEM = new int[size];
+		for (unsigned int i = 0; i < size; i++) {
+			MEM[i] = 0;
+		}
 
 	}
 	/* *******************************************************************
@@ -77,13 +89,14 @@ public:
 private:
 	sc_event start_dispatch;
 	int packet_dispatched;
-	Packet *packet;
-	unsigned int *MEM;
+	Packet packet;
+	int* MEM;
 	unsigned int m_start_address;
 	unsigned int m_end_address;
 	unsigned int m_current_packet_start_address;
 	int m_wait_count;
 	unsigned int m_nr_wait_states;
+	unsigned int payloadCounter;
 };
 
 #endif

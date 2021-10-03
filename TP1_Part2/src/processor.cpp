@@ -7,6 +7,7 @@ void processor::packet_handling(void)
 {  
 	int i = 0;
 	unsigned int address = 0; 
+	//unsigned int offset = 0;
 
 	while (i < 8)
 	{
@@ -14,7 +15,7 @@ void processor::packet_handling(void)
 		// Partie 1: générer un nombre aléatoire entre 1 et 3 ("adresse" du copro).
 		// A modifier pour partie 2: générer l'adresse dans la bonne plage (voir énoncé)
 		//address = 1 + (rand() % (3));
-		address = 4 * (rand() % (19));
+		address = ((4 * (rand() % (19)))) + ((rand() % (3)) * 96);
 		//address = 1;  // Debug avec 1 copro
 		pkt_original = new Packet(i, address);
 
@@ -31,7 +32,8 @@ void processor::packet_handling(void)
 		}
 
 
-		if (pkt_original->getAddress() == 2) {
+		//if (pkt_original->getAddress() == 2) {
+		if(address >= 96 && address <= 191){
 			int longueur = pkt_original->getPayloadSize();
 			int inversion;
 			do

@@ -29,7 +29,6 @@ public:
 	sc_in<bool> readReady1;
 	sc_out<bool> valueSent1;
 
-	sc_port<simple_bus_slave_if> slave1Bus;
 
 	/* *******************************************************************
 	// MODULE METHODS
@@ -61,7 +60,7 @@ public:
 		, m_start_address(start_address)
 		, m_end_address(end_address)
 		, m_nr_wait_states(nr_wait_states)
-		, packet_dispatched(1)
+		, packet_dispatched(0)
 		, m_wait_count(-1)
 		, payloadCounter(0)
 	{

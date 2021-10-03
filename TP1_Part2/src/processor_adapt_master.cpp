@@ -10,9 +10,9 @@ void processor_adapt_master::pkt_dispatch(void)
 	/*
 	A compléter si nécessaire
 	*/
-	int addr = 0;
-	const unsigned int myLength = 0x20;
-
+	//unsigned int addr = 0;
+	const unsigned int myLength = 0x6;
+	unsigned int id;
 	while (true)
 	{
 		wait();
@@ -22,13 +22,13 @@ void processor_adapt_master::pkt_dispatch(void)
 		*/
 		Packet* receivedPacket = new Packet(*packetFromProc.read());
 		pkt = *receivedPacket;
-
-
+		
+		id = pkt.getPacketId();
 		//Lecture de l'adresse du paquet
 		/*
 		A compléter
 		*/
-		addr = pkt.getAddress();
+		unsigned int addr = pkt.getAddress();
 
 		int* temp = (int*)pkt.getPayload();
 
@@ -36,19 +36,26 @@ void processor_adapt_master::pkt_dispatch(void)
 		/*
 		A compléter
 		*/
-		myBus->burst_write(m_unique_priority, temp, addr, myLength, m_lock);
-
+		status = myBus->burst_write(m_unique_priority, temp, addr, myLength, m_lock);
+		wait();
 
 		//Réception payload du coprocesseur
 		/*
 		A compléter
 		*/
+		status = myBus->burst_read(m_unique_priority, temp, addr, myLength, m_lock);
+		
 
 
 		//Envoi du paquet au processeur
 		/*
 		A compléter
 		*/
+		receivedPacket = new Packet((unsigned int*)temp);
+		receivedPacket->setAddress(addr);
+		receivedPacket->setPacketId(id);
+
+		PacketToProc.write(receivedPacket);
 
 	}
 }

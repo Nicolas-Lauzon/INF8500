@@ -28,19 +28,18 @@ SC_MODULE(copro2)
 	/* *******************************************************************
 	// MODULE METHODS
 	******************************************************************** */
+	SC_HAS_PROCESS(copro2);
 	// Cette fonction reçoit un paquet de l'interconnexion, le traite, et le renvoie
 	void pkt_processing(void); //THREAD
 
 	/* *******************************************************************
 	// MODULE CONSTRUCTOR
 	******************************************************************** */
-	SC_CTOR(copro2)
+	copro2(sc_module_name _name) : sc_module(_name) 
 	{
-		/* 
-		A compléter
-		*/
 		SC_THREAD(pkt_processing);
 	}
+	
 
 };
 

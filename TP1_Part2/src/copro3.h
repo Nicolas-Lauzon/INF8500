@@ -9,9 +9,7 @@ SC_MODULE(copro3)
 	/* *******************************************************************
 	// MODULE PORTS
 	******************************************************************** */
-	/* 
-	A compléter
-	*/
+	
 	sc_fifo_in<Packet*> pkt_in_copro3;
 	sc_fifo_out<Packet*> pkt_out_copro3;
 
@@ -24,19 +22,17 @@ SC_MODULE(copro3)
 	/* *******************************************************************
 	// MODULE METHODS
 	******************************************************************** */
+	SC_HAS_PROCESS(copro3);
 	// Cette fonction reçoit un paquet de l'interconnexion, le traite, et le renvoie
 	void pkt_processing(void);
 
 	/* *******************************************************************
 	// MODULE CONSTRUCTOR
 	******************************************************************** */
-	SC_CTOR(copro3)
-	{
-		/* 
-		A compléter
-		*/
+	copro3(sc_module_name _name) : sc_module(_name) {
 		SC_THREAD(pkt_processing);
 	}
+	
 
 };
 

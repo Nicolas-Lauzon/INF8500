@@ -37,11 +37,7 @@ SC_MODULE(copro1)
 	{
 		SC_THREAD(pkt_processing);
 	}
-	/*SC_CTOR(copro1)
-	{
-		// pkt_processing est un THREAD
-		SC_THREAD(pkt_processing);
-	}*/
+	
 
 };
 

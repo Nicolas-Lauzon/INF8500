@@ -9,6 +9,8 @@
 #include "packet.h"
 #include "processor.h"
 #include "copro1.h"
+#include "copro2.h"
+#include "copro3.h"
 
 #include "processor_adapt_master.h"
 #include "copro1_adapt_slave.h"
@@ -58,24 +60,33 @@ SC_MODULE(simple_bus_test)
 	simple_bus_arbiter      *arbiter;
 	copro1					*copro_1;
 	copro1_adapt_slave		*copro1_adapt;
-	//copro2                  *copro_2;
-	//copro2_adapt_slave		*copro2_adapt;
-	//copro3                  *copro_3;
-	//copro3_adapt_slave		*copro3_adapt;	
+	copro2                  *copro_2;
+	copro2_adapt_slave		*copro2_adapt;
+	copro3                  *copro_3;
+	copro3_adapt_slave		*copro3_adapt;	
 
 	// constructor
 	SC_CTOR(simple_bus_test)
 		: C1("C1")
 		, processorIn(50)
 		, processorOut(50)
+		, copro3In(50)
+		, copro3Out(50)
 	{
 		// create instances
 		//bus = new simple_bus("bus", true); // verbose output
 		//arbiter = new simple_bus_arbiter("arbiter", true); // verbose output
 		proc = new processor("processor");
-		processor_adapt = new processor_adapt_master("processor_adapt_master", 4, 0xFF, false, 300);
-		copro1_adapt = new copro1_adapt_slave("copro1_adapt", 0x00, 0x5F, 1);
+		processor_adapt = new processor_adapt_master("processor_adapt_master", 4, 0xFFF, false, 300);
+		copro1_adapt = new copro1_adapt_slave("copro1_adapt", 0, 95, 1);
 		copro_1 = new copro1("copro_1");
+		
+		copro2_adapt = new copro2_adapt_slave("copro2_adapt", 96, 191, 1);
+		copro_2 = new copro2("copro2");
+
+		copro3_adapt = new copro3_adapt_slave("copro3_adapt", 192, 287, 1);
+		copro_3 = new copro3("copro3");
+
 		bus = new simple_bus("bus");
 		arbiter = new simple_bus_arbiter("arbiter");
 		/*
@@ -85,6 +96,9 @@ SC_MODULE(simple_bus_test)
 		// connect instances	
 		bus->clock(C1);
 		bus->arbiter_port(*arbiter);
+		bus->slave_port(*copro1_adapt);
+		bus->slave_port(*copro2_adapt);
+		bus->slave_port(*copro3_adapt);
 
 		proc->pkt_in(processorIn);
 		proc->pkt_out(processorOut);
@@ -92,17 +106,39 @@ SC_MODULE(simple_bus_test)
 		processor_adapt->packetFromProc(processorOut);
 		processor_adapt->PacketToProc(processorIn);
 		processor_adapt->myBus(*bus);
+		processor_adapt->clock(C1);
 
 		copro1_adapt->pktFromcopro1(copro1Out);
 		copro1_adapt->pktTocopro1(copro1In);
 		copro1_adapt->readReady1(readyToSendBack_1);
 		copro1_adapt->valueSent1(readyToSend_1);
-		copro1_adapt->slave1Bus(*bus);
+		copro1_adapt->clock(C1);
+		//copro1_adapt->slave1Bus(*bus);
 
 		copro_1->packetIn(copro1In);
 		copro_1->packetOut(copro1Out);
 		copro_1->complete(readyToSendBack_1);
 		copro_1->valueReady(readyToSend_1);
+
+
+		copro2_adapt->packetIn(copro2OutSignal);
+		copro2_adapt->packetOut(copro2InSignal);
+		copro2_adapt->packetIn_buf(copro2OutBuffer);
+		copro2_adapt->packetOut_buf(copro2InBuffer);
+		copro2_adapt->clock(C1);
+
+		copro_2->packetIn(copro2InSignal);
+		copro_2->packetOut(copro2OutSignal);
+		copro_2->packetIn_buf(copro2InBuffer);
+		copro_2->packetOut_buf(copro2OutBuffer);
+
+		copro3_adapt->clock(C1);
+		copro3_adapt->pkt_from_copro3(copro3Out);
+		copro3_adapt->pkt_to_copro3(copro3In);
+
+		copro_3->pkt_in_copro3(copro3In);
+		copro_3->pkt_out_copro3(copro3Out);
+
 		/*
 		A compléter
 		*/
