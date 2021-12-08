@@ -1,0 +1,230 @@
+Coverage Report by instance with details
+
+=================================================================================
+=== Instance: /uart_test_classes
+=== Design Unit: work.uart_test_classes
+=================================================================================
+
+Covergroup Coverage:
+    Covergroups                      1        na        na    83.85%
+        Coverpoints/Crosses          6        na        na        na
+            Covergroup Bins         73        11        62    15.06%
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /uart_test_classes/Uart_cover_group/cg           83.85%        100          -    Uncovered            
+    covered/total bins:                                    11         73          -                      
+    missing/total bins:                                    62         73          -                      
+    % Hit:                                             15.06%        100          -                      
+    Coverpoint baudrate                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin exemple_br_115200                              51          1          -    Covered              
+    Coverpoint dut_status                             100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin exemple_bit_0                                  48          1          -    Covered              
+    Coverpoint parite                                 100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[NONE]                                      1          1          -    Covered              
+        bin auto[EVEN]                                     51          1          -    Covered              
+        bin auto[ODD]                                      51          1          -    Covered              
+    Coverpoint ref_status                               3.12%        100          -    Uncovered            
+        covered/total bins:                                 2         64          -                      
+        missing/total bins:                                62         64          -                      
+        % Hit:                                          3.12%        100          -                      
+        bin auto[0:3]                                      47          1          -    Covered              
+        bin auto[4:7]                                       0          1          -    ZERO                 
+        bin auto[8:11]                                      0          1          -    ZERO                 
+        bin auto[12:15]                                     0          1          -    ZERO                 
+        bin auto[16:19]                                     0          1          -    ZERO                 
+        bin auto[20:23]                                     0          1          -    ZERO                 
+        bin auto[24:27]                                     0          1          -    ZERO                 
+        bin auto[28:31]                                     0          1          -    ZERO                 
+        bin auto[32:35]                                    55          1          -    Covered              
+        bin auto[36:39]                                     0          1          -    ZERO                 
+        bin auto[40:43]                                     0          1          -    ZERO                 
+        bin auto[44:47]                                     0          1          -    ZERO                 
+        bin auto[48:51]                                     0          1          -    ZERO                 
+        bin auto[52:55]                                     0          1          -    ZERO                 
+        bin auto[56:59]                                     0          1          -    ZERO                 
+        bin auto[60:63]                                     0          1          -    ZERO                 
+        bin auto[64:67]                                     0          1          -    ZERO                 
+        bin auto[68:71]                                     0          1          -    ZERO                 
+        bin auto[72:75]                                     0          1          -    ZERO                 
+        bin auto[76:79]                                     0          1          -    ZERO                 
+        bin auto[80:83]                                     0          1          -    ZERO                 
+        bin auto[84:87]                                     0          1          -    ZERO                 
+        bin auto[88:91]                                     0          1          -    ZERO                 
+        bin auto[92:95]                                     0          1          -    ZERO                 
+        bin auto[96:99]                                     0          1          -    ZERO                 
+        bin auto[100:103]                                   0          1          -    ZERO                 
+        bin auto[104:107]                                   0          1          -    ZERO                 
+        bin auto[108:111]                                   0          1          -    ZERO                 
+        bin auto[112:115]                                   0          1          -    ZERO                 
+        bin auto[116:119]                                   0          1          -    ZERO                 
+        bin auto[120:123]                                   0          1          -    ZERO                 
+        bin auto[124:127]                                   0          1          -    ZERO                 
+        bin auto[128:131]                                   0          1          -    ZERO                 
+        bin auto[132:135]                                   0          1          -    ZERO                 
+        bin auto[136:139]                                   0          1          -    ZERO                 
+        bin auto[140:143]                                   0          1          -    ZERO                 
+        bin auto[144:147]                                   0          1          -    ZERO                 
+        bin auto[148:151]                                   0          1          -    ZERO                 
+        bin auto[152:155]                                   0          1          -    ZERO                 
+        bin auto[156:159]                                   0          1          -    ZERO                 
+        bin auto[160:163]                                   0          1          -    ZERO                 
+        bin auto[164:167]                                   0          1          -    ZERO                 
+        bin auto[168:171]                                   0          1          -    ZERO                 
+        bin auto[172:175]                                   0          1          -    ZERO                 
+        bin auto[176:179]                                   0          1          -    ZERO                 
+        bin auto[180:183]                                   0          1          -    ZERO                 
+        bin auto[184:187]                                   0          1          -    ZERO                 
+        bin auto[188:191]                                   0          1          -    ZERO                 
+        bin auto[192:195]                                   0          1          -    ZERO                 
+        bin auto[196:199]                                   0          1          -    ZERO                 
+        bin auto[200:203]                                   0          1          -    ZERO                 
+        bin auto[204:207]                                   0          1          -    ZERO                 
+        bin auto[208:211]                                   0          1          -    ZERO                 
+        bin auto[212:215]                                   0          1          -    ZERO                 
+        bin auto[216:219]                                   0          1          -    ZERO                 
+        bin auto[220:223]                                   0          1          -    ZERO                 
+        bin auto[224:227]                                   0          1          -    ZERO                 
+        bin auto[228:231]                                   0          1          -    ZERO                 
+        bin auto[232:235]                                   0          1          -    ZERO                 
+        bin auto[236:239]                                   0          1          -    ZERO                 
+        bin auto[240:243]                                   0          1          -    ZERO                 
+        bin auto[244:247]                                   0          1          -    ZERO                 
+        bin auto[248:251]                                   0          1          -    ZERO                 
+        bin auto[252:255]                                   0          1          -    ZERO                 
+    Coverpoint err_inject_tx                          100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[noError]                                  25          1          -    Covered              
+        bin auto[pError]                                   43          1          -    Covered              
+        bin auto[dError]                                   35          1          -    Covered              
+    Cross #cross__0#                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin c1                                         22          1          -    Covered              
+
+COVERGROUP COVERAGE:
+----------------------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal       Bins    Status               
+                                                                                                         
+----------------------------------------------------------------------------------------------------------
+ TYPE /uart_test_classes/Uart_cover_group/cg           83.85%        100          -    Uncovered            
+    covered/total bins:                                    11         73          -                      
+    missing/total bins:                                    62         73          -                      
+    % Hit:                                             15.06%        100          -                      
+    Coverpoint baudrate                               100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin exemple_br_115200                              51          1          -    Covered              
+    Coverpoint dut_status                             100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin exemple_bit_0                                  48          1          -    Covered              
+    Coverpoint parite                                 100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[NONE]                                      1          1          -    Covered              
+        bin auto[EVEN]                                     51          1          -    Covered              
+        bin auto[ODD]                                      51          1          -    Covered              
+    Coverpoint ref_status                               3.12%        100          -    Uncovered            
+        covered/total bins:                                 2         64          -                      
+        missing/total bins:                                62         64          -                      
+        % Hit:                                          3.12%        100          -                      
+        bin auto[0:3]                                      47          1          -    Covered              
+        bin auto[4:7]                                       0          1          -    ZERO                 
+        bin auto[8:11]                                      0          1          -    ZERO                 
+        bin auto[12:15]                                     0          1          -    ZERO                 
+        bin auto[16:19]                                     0          1          -    ZERO                 
+        bin auto[20:23]                                     0          1          -    ZERO                 
+        bin auto[24:27]                                     0          1          -    ZERO                 
+        bin auto[28:31]                                     0          1          -    ZERO                 
+        bin auto[32:35]                                    55          1          -    Covered              
+        bin auto[36:39]                                     0          1          -    ZERO                 
+        bin auto[40:43]                                     0          1          -    ZERO                 
+        bin auto[44:47]                                     0          1          -    ZERO                 
+        bin auto[48:51]                                     0          1          -    ZERO                 
+        bin auto[52:55]                                     0          1          -    ZERO                 
+        bin auto[56:59]                                     0          1          -    ZERO                 
+        bin auto[60:63]                                     0          1          -    ZERO                 
+        bin auto[64:67]                                     0          1          -    ZERO                 
+        bin auto[68:71]                                     0          1          -    ZERO                 
+        bin auto[72:75]                                     0          1          -    ZERO                 
+        bin auto[76:79]                                     0          1          -    ZERO                 
+        bin auto[80:83]                                     0          1          -    ZERO                 
+        bin auto[84:87]                                     0          1          -    ZERO                 
+        bin auto[88:91]                                     0          1          -    ZERO                 
+        bin auto[92:95]                                     0          1          -    ZERO                 
+        bin auto[96:99]                                     0          1          -    ZERO                 
+        bin auto[100:103]                                   0          1          -    ZERO                 
+        bin auto[104:107]                                   0          1          -    ZERO                 
+        bin auto[108:111]                                   0          1          -    ZERO                 
+        bin auto[112:115]                                   0          1          -    ZERO                 
+        bin auto[116:119]                                   0          1          -    ZERO                 
+        bin auto[120:123]                                   0          1          -    ZERO                 
+        bin auto[124:127]                                   0          1          -    ZERO                 
+        bin auto[128:131]                                   0          1          -    ZERO                 
+        bin auto[132:135]                                   0          1          -    ZERO                 
+        bin auto[136:139]                                   0          1          -    ZERO                 
+        bin auto[140:143]                                   0          1          -    ZERO                 
+        bin auto[144:147]                                   0          1          -    ZERO                 
+        bin auto[148:151]                                   0          1          -    ZERO                 
+        bin auto[152:155]                                   0          1          -    ZERO                 
+        bin auto[156:159]                                   0          1          -    ZERO                 
+        bin auto[160:163]                                   0          1          -    ZERO                 
+        bin auto[164:167]                                   0          1          -    ZERO                 
+        bin auto[168:171]                                   0          1          -    ZERO                 
+        bin auto[172:175]                                   0          1          -    ZERO                 
+        bin auto[176:179]                                   0          1          -    ZERO                 
+        bin auto[180:183]                                   0          1          -    ZERO                 
+        bin auto[184:187]                                   0          1          -    ZERO                 
+        bin auto[188:191]                                   0          1          -    ZERO                 
+        bin auto[192:195]                                   0          1          -    ZERO                 
+        bin auto[196:199]                                   0          1          -    ZERO                 
+        bin auto[200:203]                                   0          1          -    ZERO                 
+        bin auto[204:207]                                   0          1          -    ZERO                 
+        bin auto[208:211]                                   0          1          -    ZERO                 
+        bin auto[212:215]                                   0          1          -    ZERO                 
+        bin auto[216:219]                                   0          1          -    ZERO                 
+        bin auto[220:223]                                   0          1          -    ZERO                 
+        bin auto[224:227]                                   0          1          -    ZERO                 
+        bin auto[228:231]                                   0          1          -    ZERO                 
+        bin auto[232:235]                                   0          1          -    ZERO                 
+        bin auto[236:239]                                   0          1          -    ZERO                 
+        bin auto[240:243]                                   0          1          -    ZERO                 
+        bin auto[244:247]                                   0          1          -    ZERO                 
+        bin auto[248:251]                                   0          1          -    ZERO                 
+        bin auto[252:255]                                   0          1          -    ZERO                 
+    Coverpoint err_inject_tx                          100.00%        100          -    Covered              
+        covered/total bins:                                 3          3          -                      
+        missing/total bins:                                 0          3          -                      
+        % Hit:                                        100.00%        100          -                      
+        bin auto[noError]                                  25          1          -    Covered              
+        bin auto[pError]                                   43          1          -    Covered              
+        bin auto[dError]                                   35          1          -    Covered              
+    Cross #cross__0#                                  100.00%        100          -    Covered              
+        covered/total bins:                                 1          1          -                      
+        missing/total bins:                                 0          1          -                      
+        % Hit:                                        100.00%        100          -                      
+        Auto, Default and User Defined Bins:
+            bin c1                                         22          1          -    Covered              
+
+TOTAL COVERGROUP COVERAGE: 83.85%  COVERGROUP TYPES: 1
+
+Total Coverage By Instance (filtered view): 83.85%
+

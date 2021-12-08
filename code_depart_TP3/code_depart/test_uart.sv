@@ -38,7 +38,6 @@ program test_uart #(time Tck = 20000ps) (if_to_Uart bfm, if_to_Uart reference_if
    //Mailbox du driver vers le module rxtx pour indiquer l'erreur à injecter à la prochaine transmision
    mailbox err_rxtx = new();
    mailbox err_check = new();
-   int i = 0;
 
    
   
@@ -63,7 +62,7 @@ program test_uart #(time Tck = 20000ps) (if_to_Uart bfm, if_to_Uart reference_if
       uart_config = new(conf.baudrate, conf.parite, uart_cover_group);
       
       // Test avec configuration aleatoire
-      while(($get_coverage() < 100) && (i <= 1000)) begin
+      repeat(2) begin
         uart_driver.init_uart(uart_config,Tck);
         uart_driver.init_Error_inj(conf);
         uart_receiver.init_uart(uart_config,Tck);
@@ -85,8 +84,7 @@ program test_uart #(time Tck = 20000ps) (if_to_Uart bfm, if_to_Uart reference_if
         conf.randomize();
         uart_driver.init_Error_inj(conf);
         uart_config.set(conf.baudrate, conf.parite);
-        i = i + 1;
-       $display("itération maximale = %d", i);
+		
 		  // Si tout les points on ete couvert, quitter le test
   	 	 if ( $get_coverage() >= 100 ) begin
 			   break;
